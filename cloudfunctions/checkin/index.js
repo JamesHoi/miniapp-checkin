@@ -70,7 +70,7 @@ exports.main = async (event, context) => {
     var date1 = new Date(data[0].date+" "+data[0].time);
     var date2 = new Date(today+" "+time);
     var count_time = (date2-date1)+data[0].count;
-    if(count_time>=1000*60*3){
+    if(count_time>=1000*60*60*3){
       record.remove();
       db.collection("record").add({
         data:{
