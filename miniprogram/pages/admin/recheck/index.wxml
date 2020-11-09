@@ -1,0 +1,10 @@
+
+<view style="margin-top: 100px;min-height: 100%;">
+  <view class="middle">日期为xxxx-xx-xx格式</view>
+  <form bindsubmit='submitFunc'>
+    <input class="middle" name="id" placeholder="学号" />
+    <input class="middle" name="date" placeholder="日期" />
+    <button class="button" formType="submit">Submit</button>
+  </form>
+  <view class="middle">{{console_text}}</view>
+</view>

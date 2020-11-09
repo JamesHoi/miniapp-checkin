@@ -1,0 +1,13 @@
+/* pages/admin/recheck/index.wxss */
+.middle{
+  width:100%;
+  justify-content: center;
+  text-align: center;
+  margin-top:30px;
+}
+
+.button{
+  border-color: black;
+  border: 2px solid;
+  margin-top:30px;
+}

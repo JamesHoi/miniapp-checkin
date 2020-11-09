@@ -1,0 +1,21 @@
+<view style="margin-top:10px;min-height: 100%;">
+  <button class="button" bindtap="bindReCheckin">补签</button>
+  <view class="table">
+        <view class="tr bg-w">
+        <view class="th">时间</view>
+        <view class="th">操作</view>
+        </view>
+        <block wx:for="{{listData}}" wx:key="rank">
+          <view class="{{index % 2 == 0 ? 'tr bg-g' : 'tr'}}">
+            <view class="td">{{item.date+" "+item.time}}</view>
+            <view class="td">{{(item.checkin_mode == 1 ? "打卡上线" : "打卡下线") + (item.is_recheck ? "(补签)" : "")}}</view>
+          </view>
+        </block>
+      </view>
+</view>
+
+<modal title='补签' hidden="{{modalHidden}}" bindcancel='modalCancel' bindconfirm='modalConfirm'>
+  <image class="middle" src="./alipay.jpg" mode="aspectFit"></image> 
+  <view class="middle">支付5元后找管理员补签</view>
+</modal>
+

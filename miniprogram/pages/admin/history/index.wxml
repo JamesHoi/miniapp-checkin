@@ -1,0 +1,14 @@
+<view class="table">
+  <view class="tr bg-w">
+  <view class="th">目标学号</view>
+  <view class="th">目标时间</view>
+  <view class="th">补签时间</view>
+  </view>
+  <block wx:for="{{listData}}" wx:key="rank">
+    <view class="{{index % 2 == 0 ? 'tr bg-g' : 'tr'}}">
+      <view class="td">{{item.student_id}}</view>
+      <view class="td">{{item.date}}</view>
+      <view class="td">{{item.history_date+" "+item.time}}</view>
+    </view>
+  </block>
+</view>

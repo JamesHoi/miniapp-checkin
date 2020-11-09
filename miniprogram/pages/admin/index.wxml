@@ -1,0 +1,5 @@
+<view style="margin-top: 150px;min-height: 100%;">
+  <button class="button" bindtap="bindScan">扫描MAC</button>
+  <button class="button" bindtap="bindReCheckin">补签操作</button>
+  <button class="button" bindtap="bindHistory">补签记录</button>
+</view>

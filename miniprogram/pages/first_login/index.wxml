@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view style="margin-top: {{top}}px;">
+  <button class="button" wx:if="{{!hasUserInfo && canIUse}}" open-type='getUserInfo' bindgetuserinfo="getUserInfo">请点击获取授权</button>
+  <block wx:else>
+    <form bindsubmit='submitFunc'>
+      <input class="input" name="name" placeholder="请输入真实姓名" />
+      <input class="input" name="id" placeholder="请输入学号" />
+      <button class="button" formType="submit">提交</button>
+    </form>
+    <view>{{text}}</view>
+  </block>
+</view>

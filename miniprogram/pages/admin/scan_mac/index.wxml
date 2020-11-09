@@ -1,0 +1,14 @@
+
+<view style=" margin-top: 40px;display: flex;align-items: center;justify-content: center;">
+  {{status}}
+</view>
+<button class="button" bindtap="bindScan">扫描</button>
+<button class="button" bindtap="bindUpload">上传数据</button>
+<block wx:for="{{listData}}" wx:key="{[ssid]}">
+  <view>
+    <view class="td">    SSID:{{item.SSID}}</view>
+    <view class="td">    MAC:{{item.BSSID}}</view>
+    <view class="td">    Signal Strength:{{item.signalStrength}}</view>
+    <text>\n</text>
+  </view>
+</block>

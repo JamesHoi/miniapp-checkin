@@ -1,0 +1,53 @@
+.swiper-tab{
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;}
+.swiper-tab-list{  font-size: 30rpx;
+  display: inline-block;
+  width: 50%;
+  color: #777777;
+}
+.on{ color: blue;
+  border-bottom: 3rpx solid blue;}
+
+.swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; }
+.swiper-box view{
+  text-align: center;
+}
+
+.button{
+  border-color: black;
+  border: 2px solid;
+  margin-top:30px;
+}
+
+.table {
+  border: 0px solid darkgray;
+ }
+ .tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+ }
+ .td {
+  width:40%;
+  justify-content: center;
+  text-align: center;
+ }
+ .bg-w{
+  background: snow;
+ }
+ .bg-g{
+  background: #E6F3F9;
+ }
+ .th {
+  width: 40%;
+  justify-content: center;
+  background: #3366FF;
+  color: #fff;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+ }
