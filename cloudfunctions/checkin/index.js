@@ -13,9 +13,9 @@ exports.main = async (event, context) => {
   for (var i=0;i<event.wifiList.length;i++){
     var wifiList = (await db.collection("wifi").where({BSSID:event.wifiList[i].BSSID}).get()).data;
     if(wifiList.length)count++;
-    if(count>=3)break;
+    if(count>=8)break;
   }
-  if(count<3)return false;
+  if(count<8)return false;
   else if(event.mode == "checkLocation")return true;
   
   function genDate(input_date){
