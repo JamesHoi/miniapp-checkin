@@ -14,17 +14,19 @@ exports.main = async (event, context) => {
     var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate(); 
     return Y+"-"+M+"-"+D;
   }
-  var count_day = 0;
+  var count_day = 0; var count_weekend = 0;
   var today = genDate(new Date());
 
-
   while(true){
+    var check_date = new Date((new Date(today))-86400000*count_day);
     var day = db.collection("record").where({
       student_id: event.student_id,
-      date: genDate(new Date((new Date(today))-86400000*count_day))
+      date: genDate(check_date) 
     }).get()
     var data = (await day).data;
-    if(!data.length)break;
+    var is_weekend = check_date.getDay()==6 || check_date.getDay()==0;
+    if(!data.length && !is_weekend)break;
+    if(is_weekend)count_weekend++;
     count_day++;
   }
 
@@ -38,11 +40,11 @@ exports.main = async (event, context) => {
     db.collection("ranking").add({
       data:{
         name: nickname,
-        count: count_day
+        count: count_day-count_weekend
       }
     })
   }else{
-    db.collection("ranking").where({name: nickname}).update({data:{count: count_day}})
+    db.collection("ranking").where({name: nickname}).update({data:{count: count_day-count_weekend}})
   }
   return true;
 }
