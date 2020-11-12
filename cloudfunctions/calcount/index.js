@@ -17,6 +17,21 @@ exports.main = async (event, context) => {
   var count_day = 0; var count_weekend = 0;
   var today = genDate(new Date());
 
+  //按月累计
+  var d = new Date(); 
+  for(var d_ind=0;d_ind<d.getDate();d_ind++){
+    var check_date = new Date((new Date(today))-86400000*d_ind);
+    var day = db.collection("record").where({
+      student_id: event.student_id,
+      date: genDate(check_date) 
+    }).get()
+    var data = (await day).data;
+    if(!data.length)continue;
+    count_day++;
+  }
+
+  //按周累计，周末不计
+  /*
   while(true){
     var check_date = new Date((new Date(today))-86400000*count_day);
     var day = db.collection("record").where({
@@ -28,8 +43,8 @@ exports.main = async (event, context) => {
     if(!data.length && !is_weekend)break;
     if(is_weekend)count_weekend++;
     count_day++;
-  }
-
+  }*/
+  
   //查找姓名
   var nickname = (await db.collection("users").where({student_id:event.student_id}).get()).data[0].nickname;
 
